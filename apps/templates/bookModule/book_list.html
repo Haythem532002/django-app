@@ -1,0 +1,13 @@
+{% extends 'layouts/base.html' %}
+{% block content %}
+<h2>Liste des livres</h2>
+<a href="{% url 'book_create' %}">Ajouter un livre</a>
+<ul>
+    {% for book in books %}
+        <li>{{ book.title }} par {{ book.author }} -
+            <a href="{% url 'book_update' book.pk %}">Modifier</a> |
+            <a href="{% url 'book_delete' book.pk %}">Supprimer</a>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}
